@@ -29,6 +29,8 @@ public class UsernameFrame extends JFrame {
         btn.addActionListener(controller);
         add(btn, BorderLayout.PAGE_END);
         setSize(WIDTH, HEIGHT);
+        this.setLocation((int) (Toolkit.getDefaultToolkit().getScreenSize().width / 2 - this.getSize().getWidth() / 2)
+                , (int) (Toolkit.getDefaultToolkit().getScreenSize().height / 2 - this.getSize().getHeight() / 2));
         setVisible(true);
     }
 

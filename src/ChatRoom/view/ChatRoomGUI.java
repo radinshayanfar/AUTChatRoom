@@ -8,7 +8,7 @@ import java.awt.*;
 public class ChatRoomGUI extends JFrame {
     private static String WINDOWS_TITLE = "AUT Chat Room";
     private final int WIDTH = 500, HEIGHT = 500;
-    private final int X = 100, Y = 100;
+    private final int X = 300, Y = 200;
     private ChatArea chatBox;
     private MessageArea messageArea;
     private ParticipantsArea participantsArea;
