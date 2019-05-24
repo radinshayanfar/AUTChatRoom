@@ -7,10 +7,18 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        String host = "127.0.0.1";
+        int port = 8749;
 
-        Scanner sc = new Scanner(System.in);
-        String host = sc.nextLine();
-        int port = sc.nextInt();
+        boolean defaultServer = true;
+
+        if (!defaultServer) {
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter server's host: ");
+            host = sc.nextLine();
+            System.out.print("Enter server's port: ");
+            port = sc.nextInt();
+        }
 
         Server server = new Server(host, port);
 
