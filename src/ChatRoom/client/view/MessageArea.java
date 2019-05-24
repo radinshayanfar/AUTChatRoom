@@ -5,12 +5,12 @@ import ChatRoom.client.controller.ChatController;
 import javax.swing.*;
 import java.awt.*;
 
-public class MessageArea extends JPanel {
+class MessageArea extends JPanel {
 
     private JButton send;
     private JTextField text;
 
-    public MessageArea(ChatController controller) {
+    MessageArea(ChatController controller) {
         super(new BorderLayout());
         send = new JButton("Send");
         send.addActionListener(controller);
@@ -22,11 +22,11 @@ public class MessageArea extends JPanel {
 
     }
 
-    public String getJTextFieldText() {
+    String getJTextFieldText() {
         return text.getText();
     }
 
-    public void reset() {
+    void reset() {
         text.setText("");
     }
 }

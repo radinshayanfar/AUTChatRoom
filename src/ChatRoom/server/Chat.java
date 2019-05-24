@@ -41,14 +41,14 @@ public class Chat implements Runnable {
         }
     }
 
-    public void sendMessageToAll(Message message) {
+    void sendMessageToAll(Message message) {
         for (Participant p :
                 participants) {
             p.sendObject(message);
         }
     }
 
-    public void setParticipantsToAll() {
+    private void setParticipantsToAll() {
         String[] parArray = new String[participants.size()];
         for (int i = 0; i < parArray.length; i++) {
             parArray[i] = participants.get(i).getName();
@@ -59,7 +59,7 @@ public class Chat implements Runnable {
         }
     }
 
-    public void deleteParticipant(Participant participant) {
+    void deleteParticipant(Participant participant) {
         participants.remove(participant);
         setParticipantsToAll();
     }

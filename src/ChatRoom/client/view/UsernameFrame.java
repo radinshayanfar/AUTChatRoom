@@ -7,17 +7,14 @@ import java.awt.*;
 
 public class UsernameFrame extends JFrame {
     private static final String BTN_TXT = "Start Chatting ...";
-    private static final String LABEL_TXT = "Choose Your UserName";
+    private static final String LABEL_TXT = "Choose Your Username";
     private static final int WIDTH = 300, HEIGHT = 100;
-
-    private LoginController controller;
 
     private JTextField textField;
     private JButton btn;
 
     public UsernameFrame(LoginController controller) throws HeadlessException {
         super();
-        this.controller = controller;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
         JLabel label = new JLabel(LABEL_TXT);

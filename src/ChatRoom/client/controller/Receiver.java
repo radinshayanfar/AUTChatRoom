@@ -11,7 +11,7 @@ public class Receiver implements Runnable {
     private ObjectInputStream inStream;
     private ChatController controller;
 
-    public Receiver(ObjectInputStream inStream, ChatController controller) {
+    Receiver(ObjectInputStream inStream, ChatController controller) {
         this.inStream = inStream;
         this.controller = controller;
     }

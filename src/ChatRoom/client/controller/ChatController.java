@@ -15,17 +15,16 @@ public class ChatController implements ActionListener {
 
     private ChatRoomGUI view;
     private String username;
-    private Socket socket;
     private ObjectOutputStream outStream;
     private ObjectInputStream inStream;
 
-    public ChatController(String username, Server server) {
+    ChatController(String username, Server server) {
 
         view = new ChatRoomGUI(this, username);
         this.username = username;
 
         try {
-            socket = new Socket(server.getHost(), server.getPort());
+            Socket socket = new Socket(server.getHost(), server.getPort());
             outStream = new ObjectOutputStream(socket.getOutputStream());
             inStream = new ObjectInputStream(socket.getInputStream());
 
@@ -50,11 +49,11 @@ public class ChatController implements ActionListener {
         }
     }
 
-    public void addNewMessage(Message message) {
+    void addNewMessage(Message message) {
         view.addNewMessage(message.getUsername(), message.getText());
     }
 
-    public void setParticipants(String[] participants) {
+    void setParticipants(String[] participants) {
         view.setParticipant(participants);
     }
 }

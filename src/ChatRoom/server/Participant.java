@@ -14,14 +14,14 @@ public class Participant implements Runnable {
     private String name;
     private Chat server;
 
-    public Participant(ObjectOutputStream outStream, ObjectInputStream inStream, String name, Chat server) {
+    Participant(ObjectOutputStream outStream, ObjectInputStream inStream, String name, Chat server) {
         this.outStream = outStream;
         this.inStream = inStream;
         this.name = name;
         this.server = server;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 

@@ -2,17 +2,17 @@ package ChatRoom.client.view;
 
 import javax.swing.*;
 
-public class ChatArea extends JTextArea {
+class ChatArea extends JTextArea {
 
     private static final int ROWS = 10, COLUMNS = 30;
 
-    public ChatArea() {
-        super(ROWS, HEIGHT);
+    ChatArea() {
+        super(ROWS, COLUMNS);
         this.setEditable(false);
         this.setLineWrap(true);
     }
 
-    public void addMessage(String username, String message) {
+    void addMessage(String username, String message) {
         this.setText(this.getText() + username + ":\n" + message + "\n");
 
     }
