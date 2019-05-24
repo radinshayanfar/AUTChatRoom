@@ -1,6 +1,6 @@
-package ChatRoom.view;
+package ChatRoom.client.view;
 
-import ChatRoom.controller.ChatController;
+import ChatRoom.client.controller.ChatController;
 
 import javax.swing.*;
 import java.awt.*;

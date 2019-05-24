@@ -1,4 +1,4 @@
-package ChatRoom.view;
+package ChatRoom.client.view;
 
 import javax.swing.*;
 import java.util.ArrayList;

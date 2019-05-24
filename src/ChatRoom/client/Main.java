@@ -1,6 +1,6 @@
-package ChatRoom;
+package ChatRoom.client;
 
-import ChatRoom.controller.LoginController;
+import ChatRoom.client.controller.LoginController;
 
 public class Main {
     public static void main(String[] args) {
