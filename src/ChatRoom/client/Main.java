@@ -10,14 +10,14 @@ public class Main {
         String host = "127.0.0.1";
         int port = 8749;
 
-        boolean defaultServer = true;
+        boolean defaultServer = false;
 
         if (!defaultServer) {
             Scanner sc = new Scanner(System.in);
             System.out.print("Enter server's host: ");
             host = sc.nextLine();
-            System.out.print("Enter server's port: ");
-            port = sc.nextInt();
+//            System.out.print("Enter server's port: ");
+//            port = sc.nextInt();
         }
 
         Server server = new Server(host, port);
