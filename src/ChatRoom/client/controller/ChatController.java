@@ -29,7 +29,7 @@ public class ChatController implements ActionListener {
             inStream = new ObjectInputStream(socket.getInputStream());
 
             outStream.writeObject(username);
-            view.addNewParticipant(username);
+            outStream.flush();
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(1);
@@ -51,5 +51,9 @@ public class ChatController implements ActionListener {
 
     public void addNewMessage(Message message) {
         view.addNewMessage(message.getUsername(), message.getText());
+    }
+
+    public void setParticipants(String[] participants) {
+        view.setParticipant(participants);
     }
 }

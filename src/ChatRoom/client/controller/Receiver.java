@@ -20,8 +20,15 @@ public class Receiver implements Runnable {
     public void run() {
         try {
             while (true) {
-                Message message = (Message) inStream.readObject();
-                controller.addNewMessage(message);
+                Object readObj = inStream.readObject();
+                if (readObj instanceof Message) {
+                    Message message = (Message) readObj;
+                    controller.addNewMessage(message);
+                }
+                if (readObj instanceof String[]) {
+                    String[] list = (String[]) readObj;
+                    controller.setParticipants(list);
+                }
             }
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

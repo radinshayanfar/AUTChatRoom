@@ -5,6 +5,7 @@ import ChatRoom.Message;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Objects;
 
 public class Participant implements Runnable {
 
@@ -33,19 +34,36 @@ public class Participant implements Runnable {
                 server.sendMessageToAll(message);
 
             }
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (IOException e) {
+            System.out.println(name + " disconnected!");
+            server.deleteParticipant(this);
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    public void sendMessage(Message message) {
-//        System.out.println(message.getText());
+    public void sendObject(Object obj) {
         try {
-            outStream.writeObject(message);
+            outStream.writeObject(obj);
             outStream.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Participant that = (Participant) o;
+        return outStream.equals(that.outStream) &&
+                inStream.equals(that.inStream) &&
+                name.equals(that.name) &&
+                server.equals(that.server);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(outStream, inStream, name, server);
     }
 }

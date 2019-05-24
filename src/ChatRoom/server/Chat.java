@@ -24,10 +24,12 @@ public class Chat implements Runnable {
                 ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
 
                 String name = (String) inStream.readObject();
-                System.out.println(name);
-                System.out.flush();
+
+                System.out.println(name + " connected!");
+
                 Participant newParticipant = new Participant(outStream, inStream, name, this);
                 participants.add(newParticipant);
+                setParticipantsToAll();
 
                 new Thread(newParticipant).start();
             }
@@ -39,7 +41,23 @@ public class Chat implements Runnable {
     public void sendMessageToAll(Message message) {
         for (Participant p :
                 participants) {
-            p.sendMessage(message);
+            p.sendObject(message);
         }
+    }
+
+    public void setParticipantsToAll() {
+        String[] parArray = new String[participants.size()];
+        for (int i = 0; i < parArray.length; i++) {
+            parArray[i] = participants.get(i).getName();
+        }
+        for (Participant p :
+                participants) {
+            p.sendObject(parArray);
+        }
+    }
+
+    public void deleteParticipant(Participant participant) {
+        participants.remove(participant);
+        setParticipantsToAll();
     }
 }

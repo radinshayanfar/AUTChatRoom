@@ -44,12 +44,8 @@ public class ChatRoomGUI extends JFrame {
         chatBox.addMessage(username, message);
     }
 
-    public void addNewParticipant(String username) {
-        participantsArea.addParticipant(username);
-    }
-
-    public void removeParticipant(String username) {
-        participantsArea.removeParticipant(username);
+    public void setParticipant(String[] participants) {
+        participantsArea.setParticipants(participants);
     }
 
     public void resetMessageText() {
