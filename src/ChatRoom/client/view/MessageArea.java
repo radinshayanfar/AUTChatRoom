@@ -16,7 +16,7 @@ public class MessageArea extends JPanel {
         send.addActionListener(controller);
         this.add(send, BorderLayout.EAST);
         text = new JTextField();
-        text.setBackground(Color.pink);
+        text.setBackground(new Color(242, 242, 186));
         text.addActionListener(controller);
         this.add(text, BorderLayout.CENTER);
 

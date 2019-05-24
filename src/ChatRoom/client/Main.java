@@ -1,16 +1,20 @@
 package ChatRoom.client;
 
 import ChatRoom.client.controller.LoginController;
+import ChatRoom.client.model.Server;
+
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        new LoginController();
-//        ChatRoomGUI gui = new ChatRoomGUI();
 
-//        gui.addNewMessage("Radin Shayanfar", "Hello");
-//        gui.addNewParticipant("Radin Shayanfar");
-//        gui.addNewParticipant("Erfan Ghassemi");
-//        gui.addNewParticipant("Saman Hosseini");
-//        gui.removeParticipant("Saman Hosseini");
+        Scanner sc = new Scanner(System.in);
+        String host = sc.nextLine();
+        int port = sc.nextInt();
+
+        Server server = new Server(host, port);
+
+        new LoginController(server);
+
     }
 }

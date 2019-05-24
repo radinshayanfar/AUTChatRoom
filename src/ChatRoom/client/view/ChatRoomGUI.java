@@ -15,10 +15,10 @@ public class ChatRoomGUI extends JFrame {
 
     private ChatController controller;
 
-    public ChatRoomGUI(ChatController controller) throws HeadlessException {
+    public ChatRoomGUI(ChatController controller, String name) throws HeadlessException {
         super();
         this.controller = controller;
-        this.setTitle(WINDOWS_TITLE);
+        this.setTitle(WINDOWS_TITLE + " (" + name + ")");
         this.setLayout(new BorderLayout());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(WIDTH, HEIGHT);

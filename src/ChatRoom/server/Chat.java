@@ -11,12 +11,15 @@ import java.util.ArrayList;
 
 public class Chat implements Runnable {
 
+    private static final int PORT = 8749;
+
     private ArrayList<Participant> participants = new ArrayList<>();
 
     @Override
     public void run() {
         try {
-            ServerSocket serverSocket = new ServerSocket(8749);
+            System.out.println("Listening on port: " + PORT);
+            ServerSocket serverSocket = new ServerSocket(PORT);
             while (true) {
                 Socket socket = serverSocket.accept();
 
