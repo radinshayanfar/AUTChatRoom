@@ -22,19 +22,18 @@ public class LoginController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String username = view.getUsername();
         if (username.length() == 0) return;
-        if (view.getHost().length() == 0) return;
+
+        ServerConfig serverConfig = view.getServerConfig();
+        if (serverConfig.getHost().length() == 0) return;
 
         try {
             Socket socket = new Socket();
-            socket.connect(new InetSocketAddress(view.getHost(), view.getPort()), 10_000);
+            socket.connect(new InetSocketAddress(serverConfig.getHost(), serverConfig.getPort()), 10_000);
             view.dispose();
             new ChatController(socket, username);
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "Host unreachable");
         }
-
-
-
     }
 
 }

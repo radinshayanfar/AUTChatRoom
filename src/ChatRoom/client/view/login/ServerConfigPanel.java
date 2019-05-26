@@ -1,5 +1,7 @@
 package ChatRoom.client.view.login;
 
+import ChatRoom.client.model.ServerConfig;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -36,5 +38,10 @@ class ServerConfigPanel extends JPanel {
 
     JTextField getPortField() {
         return portField;
+    }
+
+    ServerConfig getServerConfig() {
+        return new ServerConfig(hostField.getText()
+                , Integer.parseInt(portField.getText()));
     }
 }

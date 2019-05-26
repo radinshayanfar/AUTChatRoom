@@ -40,11 +40,7 @@ public class LoginView extends JFrame {
         return usernamePanel.getUsernameField().getText();
     }
 
-    public String getHost() {
-        return serverConfigPanel.getHostField().getText();
-    }
-
-    public int getPort() {
-        return Integer.parseInt(serverConfigPanel.getPortField().getText());
+    public ServerConfig getServerConfig() {
+        return serverConfigPanel.getServerConfig();
     }
 }
