@@ -1,11 +1,11 @@
-package ChatRoom.client.view;
+package ChatRoom.client.view.chatroom;
 
 import ChatRoom.client.controller.ChatController;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class ChatRoomGUI extends JFrame {
+public class ChatRoomView extends JFrame {
     private static String WINDOWS_TITLE = "AUT Chat Room";
     private final int WIDTH = 500, HEIGHT = 500;
     private final int X = 300, Y = 200;
@@ -15,7 +15,7 @@ public class ChatRoomGUI extends JFrame {
 
     private ChatController controller;
 
-    public ChatRoomGUI(ChatController controller, String name) throws HeadlessException {
+    public ChatRoomView(ChatController controller, String name) throws HeadlessException {
         super();
         this.controller = controller;
         this.setTitle(WINDOWS_TITLE + " (" + name + ")");
@@ -33,6 +33,9 @@ public class ChatRoomGUI extends JFrame {
         participantsArea = new ParticipantsArea();
         participantsArea.setPreferredSize(new Dimension(170, participantsArea.getHeight()));
         this.add(participantsArea, BorderLayout.WEST);
+
+        this.setLocation((int) (Toolkit.getDefaultToolkit().getScreenSize().width / 2 - this.getSize().getWidth() / 2)
+                , (int) (Toolkit.getDefaultToolkit().getScreenSize().height / 2 - this.getSize().getHeight() / 2));
 
         this.setVisible(true);
 

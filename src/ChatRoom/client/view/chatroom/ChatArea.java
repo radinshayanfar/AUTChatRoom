@@ -1,4 +1,4 @@
-package ChatRoom.client.view;
+package ChatRoom.client.view.chatroom;
 
 import javax.swing.*;
 

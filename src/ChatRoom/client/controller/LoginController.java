@@ -1,27 +1,26 @@
 package ChatRoom.client.controller;
 
-import ChatRoom.client.model.Server;
-import ChatRoom.client.view.UsernameFrame;
+import ChatRoom.client.model.ServerConfig;
+import ChatRoom.client.view.login.LoginView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LoginController implements ActionListener {
 
-    private UsernameFrame view;
-    private Server server;
+    private LoginView view;
 
-    public LoginController(Server server) {
-        this.server = server;
-        view = new UsernameFrame(this);
+    public LoginController(ServerConfig serverConfig) {
+        view = new LoginView(this, serverConfig);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String username = view.getJTextFieldText();
+        String username = view.getUsername();
         if (username.length() == 0) return;
+        if (view.getHost().length() == 0) return;
         view.dispose();
-        new ChatController(username, server);
+        new ChatController(username, new ServerConfig(view.getHost(), view.getPort()));
 
     }
 

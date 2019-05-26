@@ -1,8 +1,8 @@
 package ChatRoom.client.controller;
 
 import ChatRoom.Message;
-import ChatRoom.client.model.Server;
-import ChatRoom.client.view.ChatRoomGUI;
+import ChatRoom.client.model.ServerConfig;
+import ChatRoom.client.view.chatroom.ChatRoomView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,18 +13,18 @@ import java.net.Socket;
 
 public class ChatController implements ActionListener {
 
-    private ChatRoomGUI view;
+    private ChatRoomView view;
     private String username;
     private ObjectOutputStream outStream;
     private ObjectInputStream inStream;
 
-    ChatController(String username, Server server) {
+    ChatController(String username, ServerConfig serverConfig) {
 
-        view = new ChatRoomGUI(this, username);
+        view = new ChatRoomView(this, username);
         this.username = username;
 
         try {
-            Socket socket = new Socket(server.getHost(), server.getPort());
+            Socket socket = new Socket(serverConfig.getHost(), serverConfig.getPort());
             outStream = new ObjectOutputStream(socket.getOutputStream());
             inStream = new ObjectInputStream(socket.getInputStream());
 

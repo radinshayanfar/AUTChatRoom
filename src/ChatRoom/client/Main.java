@@ -1,7 +1,7 @@
 package ChatRoom.client;
 
 import ChatRoom.client.controller.LoginController;
-import ChatRoom.client.model.Server;
+import ChatRoom.client.model.ServerConfig;
 
 import java.util.Scanner;
 
@@ -10,19 +10,9 @@ public class Main {
         String host = "127.0.0.1";
         int port = 8749;
 
-        boolean defaultServer = false;
+        ServerConfig serverConfig = new ServerConfig(host, port);
 
-        if (!defaultServer) {
-            Scanner sc = new Scanner(System.in);
-            System.out.print("Enter server's host: ");
-            host = sc.nextLine();
-//            System.out.print("Enter server's port: ");
-//            port = sc.nextInt();
-        }
-
-        Server server = new Server(host, port);
-
-        new LoginController(server);
+        new LoginController(serverConfig);
 
     }
 }
