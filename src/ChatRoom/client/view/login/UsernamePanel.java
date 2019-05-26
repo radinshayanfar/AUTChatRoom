@@ -9,7 +9,7 @@ class UsernamePanel extends JPanel {
 
     UsernamePanel() {
         this.setLayout(new BorderLayout());
-        add(new JLabel("Enter username:"), BorderLayout.PAGE_START);
+        add(new JLabel("Enter your name:"), BorderLayout.PAGE_START);
         usernameField.setPreferredSize(new Dimension(LoginView.WIDTH, 30));
         add(usernameField, BorderLayout.CENTER);
 

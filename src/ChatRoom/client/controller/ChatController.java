@@ -18,13 +18,12 @@ public class ChatController implements ActionListener {
     private ObjectOutputStream outStream;
     private ObjectInputStream inStream;
 
-    ChatController(String username, ServerConfig serverConfig) {
+    ChatController(Socket socket, String username) {
 
         view = new ChatRoomView(this, username);
         this.username = username;
 
         try {
-            Socket socket = new Socket(serverConfig.getHost(), serverConfig.getPort());
             outStream = new ObjectOutputStream(socket.getOutputStream());
             inStream = new ObjectInputStream(socket.getInputStream());
 

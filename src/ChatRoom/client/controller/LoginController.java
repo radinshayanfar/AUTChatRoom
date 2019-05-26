@@ -3,8 +3,12 @@ package ChatRoom.client.controller;
 import ChatRoom.client.model.ServerConfig;
 import ChatRoom.client.view.login.LoginView;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 
 public class LoginController implements ActionListener {
 
@@ -19,8 +23,17 @@ public class LoginController implements ActionListener {
         String username = view.getUsername();
         if (username.length() == 0) return;
         if (view.getHost().length() == 0) return;
-        view.dispose();
-        new ChatController(username, new ServerConfig(view.getHost(), view.getPort()));
+
+        try {
+            Socket socket = new Socket();
+            socket.connect(new InetSocketAddress(view.getHost(), view.getPort()), 10_000);
+            view.dispose();
+            new ChatController(socket, username);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Host unreachable");
+        }
+
+
 
     }
 
