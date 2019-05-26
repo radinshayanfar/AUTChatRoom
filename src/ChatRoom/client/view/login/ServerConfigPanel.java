@@ -3,12 +3,12 @@ package ChatRoom.client.view.login;
 import javax.swing.*;
 import java.awt.*;
 
-public class ServerConfigPanel extends JPanel {
+class ServerConfigPanel extends JPanel {
 
     private JTextField hostField = new JTextField();
     private JTextField portField = new JTextField();
 
-    public ServerConfigPanel() {
+    ServerConfigPanel() {
 
         JPanel hostPanel = new JPanel(new BorderLayout());
         hostPanel.add(new JLabel("Host:"), BorderLayout.PAGE_START);
@@ -30,11 +30,11 @@ public class ServerConfigPanel extends JPanel {
 
     }
 
-    public JTextField getHostField() {
+    JTextField getHostField() {
         return hostField;
     }
 
-    public JTextField getPortField() {
+    JTextField getPortField() {
         return portField;
     }
 }

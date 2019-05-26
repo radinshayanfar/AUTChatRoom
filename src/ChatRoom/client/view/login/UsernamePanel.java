@@ -3,11 +3,11 @@ package ChatRoom.client.view.login;
 import javax.swing.*;
 import java.awt.*;
 
-public class UsernamePanel extends JPanel {
+class UsernamePanel extends JPanel {
 
     private JTextField usernameField = new JTextField();
 
-    public UsernamePanel() {
+    UsernamePanel() {
         this.setLayout(new BorderLayout());
         add(new JLabel("Enter username:"), BorderLayout.PAGE_START);
         usernameField.setPreferredSize(new Dimension(LoginView.WIDTH, 30));
@@ -18,7 +18,7 @@ public class UsernamePanel extends JPanel {
         setVisible(true);
     }
 
-    public JTextField getUsernameField() {
+    JTextField getUsernameField() {
         return usernameField;
     }
 
