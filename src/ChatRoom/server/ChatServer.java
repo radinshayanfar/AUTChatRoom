@@ -8,14 +8,16 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
-public class Chat implements Runnable {
+public class ChatServer {
 
     private static final int PORT = 8749;
 
     private ArrayList<Participant> participants = new ArrayList<>();
+    private Executor executor = Executors.newCachedThreadPool();
 
-    @Override
     public void run() {
         try {
             System.out.println("Listening on port: " + PORT);
@@ -34,7 +36,7 @@ public class Chat implements Runnable {
                 participants.add(newParticipant);
                 setParticipantsToAll();
 
-                new Thread(newParticipant).start();
+                executor.execute(newParticipant);
             }
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

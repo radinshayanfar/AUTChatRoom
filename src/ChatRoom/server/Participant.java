@@ -12,9 +12,9 @@ public class Participant implements Runnable {
     private ObjectOutputStream outStream;
     private ObjectInputStream inStream;
     private String name;
-    private Chat server;
+    private ChatServer server;
 
-    Participant(ObjectOutputStream outStream, ObjectInputStream inStream, String name, Chat server) {
+    Participant(ObjectOutputStream outStream, ObjectInputStream inStream, String name, ChatServer server) {
         this.outStream = outStream;
         this.inStream = inStream;
         this.name = name;
