@@ -41,6 +41,7 @@ public class ChatController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
+            if (view.getJTextFieldText().length() == 0) return;
             outStream.writeObject(new Message(username, view.getJTextFieldText()));
             outStream.flush();
             view.resetMessageText();

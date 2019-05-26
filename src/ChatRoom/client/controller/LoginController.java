@@ -19,6 +19,7 @@ public class LoginController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         String username = view.getJTextFieldText();
+        if (username.length() == 0) return;
         view.dispose();
         new ChatController(username, server);
 
