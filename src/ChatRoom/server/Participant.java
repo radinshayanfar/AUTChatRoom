@@ -42,7 +42,7 @@ public class Participant implements Runnable {
         }
     }
 
-    public void sendObject(Object obj) {
+    void sendObject(Object obj) {
         try {
             outStream.writeObject(obj);
             outStream.flush();

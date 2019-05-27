@@ -11,14 +11,14 @@ import java.util.ArrayList;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-public class ChatServer {
+class ChatServer {
 
     private static final int PORT = 8749;
 
     private ArrayList<Participant> participants = new ArrayList<>();
     private Executor executor = Executors.newCachedThreadPool();
 
-    public void run() {
+    void run() {
         try {
             System.out.println("Listening on port: " + PORT);
             ServerSocket serverSocket = new ServerSocket(PORT);
