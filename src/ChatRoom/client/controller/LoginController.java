@@ -27,12 +27,15 @@ public class LoginController implements ActionListener {
         if (serverConfig.getHost().length() == 0) return;
 
         try {
+            view.disableFieldsForConnection();
+
             Socket socket = new Socket();
             socket.connect(new InetSocketAddress(serverConfig.getHost(), serverConfig.getPort()), 10_000);
             view.dispose();
             new ChatController(socket, username);
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "Host unreachable");
+            view.enableFieldsAfterConnectionFailed();
         }
     }
 
